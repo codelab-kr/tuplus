@@ -147,16 +147,3 @@ sketch
 /playwright/.cache/
 
 .DS_Store
-
-
-# Ignore the folders
-/db-fixture-rest-api/
-/gateway/
-/history/
-/metadata/
-/mock-storage/
-/oci-storage/
-/security/
-/terraform/
-/video-streaming/
-/video-upload/

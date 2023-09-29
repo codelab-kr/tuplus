@@ -1,0 +1,27 @@
+[submodule "db-fixture-rest-api"]
+	path = db-fixture-rest-api
+	url = https://github.com/codelab-kr/tuplus-db-fixture-rest-api.git
+[submodule "history"]
+	path = history
+	url = https://github.com/codelab-kr/tuplus-history.git
+[submodule "gateway"]
+	path = gateway
+	url = https://github.com/codelab-kr/tuplus-gateway.git
+[submodule "metadata"]
+	path = metadata
+	url = https://github.com/codelab-kr/tuplus-metadata.git
+[submodule "mock-storage"]
+	path = mock-storage
+	url = https://github.com/codelab-kr/tuplus-mock-storage.git
+[submodule "oci-storage"]
+	path = oci-storage
+	url = https://github.com/codelab-kr/tuplus-oci-storage.git
+[submodule "security"]
+	path = security
+	url = https://github.com/codelab-kr/tuplus-security.git
+[submodule "video-streaming"]
+	path = video-streaming
+	url = https://github.com/codelab-kr/tuplus-video-streaming.git
+[submodule "video-upload"]
+	path = video-upload
+	url = https://github.com/codelab-kr/tuplus-video-upload.git
