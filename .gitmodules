@@ -12,10 +12,10 @@
 	url = https://github.com/codelab-kr/tuplus-metadata.git
 [submodule "mock-storage"]
 	path = mock-storage
-	url = https://github.com/codelab-kr/tuplus-mock-storage.git
+	url = https://github.com/codelab-kr/tuplus-mock-storage
 [submodule "oci-storage"]
 	path = oci-storage
-	url = https://github.com/codelab-kr/tuplus-oci-storage.git
+	url = https://github.com/codelab-kr/tuplus-oci-storage
 [submodule "security"]
 	path = security
 	url = https://github.com/codelab-kr/tuplus-security.git
