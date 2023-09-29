@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gateway
+  name: gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+      imagePullSecrets:
+      - name: ocir-registry-secret
+      containers:
+      - image: ap-seoul-1.ocir.io/cnqphqevfxnp/gateway:latest
+        name: gateway
+        imagePullPolicy: Always
+        env:
+        - name: PORT
+          value: "80"
+        - name: RABBIT
+          value: "amqp://guest:guest@rabbit:5672"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: gateway
+  name: gateway
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: gateway

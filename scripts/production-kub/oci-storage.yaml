@@ -1,0 +1,48 @@
+#
+# To deploy:
+#
+# kubectl apply -f scripts/deploy.yaml
+#
+#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: video-storage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: video-storage
+  template:
+    metadata:
+      labels:
+        app: video-storage
+    spec:
+      imagePullSecrets:
+      - name: free-registry-secret
+      containers: 
+      - name: video-storage
+        image: $CONTAINER_REGISTRY/oci-storage:1
+        imagePullPolicy: Always
+        env:
+        - name: PORT
+          value: "4000"
+        - name: RABBIT
+          value: amqp://test:test@rabbit:5672
+        - name: NAMESPACE
+          value: $NAMESPACE
+        - name: BUCKET_NAME
+          value: $BUCKET_NAME
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: video-storage
+spec:
+  selector:
+    app: video-storage
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4000
