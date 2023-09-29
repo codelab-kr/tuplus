@@ -1,9 +1,0 @@
-rm -rf db-fixture-rest-api && git submodule add  --force --name db-fixture-rest-api https://github.com/codelab-kr/tuplus-db-fixture-rest-api.git db-fixture-rest-api
-rm -rf gateway && git submodule add  --force --name gateway https://github.com/codelab-kr/tuplus-gateway.git gateway
-rm -rf history && git submodule add  --force --name history https://github.com/codelab-kr/tuplus-history.git history
-rm -rf metadata && git submodule add  --force --name metadata https://github.com/codelab-kr/tuplus-metadata.git metadata
-rm -rf mock-storage && git submodule add  --force --name mock-storage https://github.com/codelab-kr/tuplus-mock-storage.git mock-storage
-rm -rf oci-storage && git submodule add  --force --name oci-storage https://github.com/codelab-kr/tuplus-oci-storage.git oci-storage
-rm -rf security && git submodule add  --force --name security https://github.com/codelab-kr/tuplus-security.git security
-rm -rf video-streaming && git submodule add  --force --name video-streaming https://github.com/codelab-kr/tuplus-video-streaming.git video-streaming
-rm -rf video-upload && git submodule add  --force --name video-upload https://github.com/codelab-kr/tuplus-video-upload.git video-upload
