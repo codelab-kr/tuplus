@@ -19,9 +19,6 @@
 [submodule "security"]
 	path = security
 	url = https://github.com/codelab-kr/tuplus-security.git
-[submodule "video-streaming"]
-	path = video-streaming
-	url = https://github.com/codelab-kr/tuplus-video-streaming.git
 [submodule "video-upload"]
 	path = video-upload
 	url = https://github.com/codelab-kr/tuplus-video-upload.git
