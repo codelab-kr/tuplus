@@ -12,4 +12,4 @@
 set -u # or set -o nounset
 : "$NAME"
 
-envsubst <./scripts/cd/${NAME}.yaml | kubectl -n tuflix delete -f -
+envsubst <./scripts/cd/${NAME}.yaml | kubectl -n tuplus delete -f -

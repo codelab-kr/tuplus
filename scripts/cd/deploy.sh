@@ -19,4 +19,4 @@ set -u # or set -o nounset
 : "$NAME"
 : "$VERSION"
 
-envsubst < ./scripts/cd/${NAME}.yaml | kubectl -n tuflix apply -f -
+envsubst < ./scripts/cd/${NAME}.yaml | kubectl -n tuplus apply -f -

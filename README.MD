@@ -1,7 +1,3 @@
-## Notes
-
-npx husky add .husky/pre-commit "npx lint-staged"
-
 # Entire Architecture
 
 ```mermaid
@@ -92,3 +88,7 @@ OCI_CLI_FINGERPRINT
 OCI_CLI_KEY_CONTENT
 OCI_CLI_REGION
 OKE_CLUSTER_OCID
+
+
+## Notes
+npx husky add .husky/pre-commit "npx lint-staged"

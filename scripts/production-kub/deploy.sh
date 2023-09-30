@@ -7,13 +7,13 @@
 #   cd scripts/production-kub 
 #   ./deploy.sh
 
-kubectl -n tuflix create secret docker-registry free-registry-secret --docker-server=ap-seoul-1.ocir.io --docker-username='cnqphqevfxnp/codelab' --docker-password='<token>' --
+kubectl -n tuplus create secret docker-registry free-registry-secret --docker-server=ap-seoul-1.ocir.io --docker-username='cnqphqevfxnp/codelab' --docker-password='<token>' --
 
 export CONTAINER_REGISTRY=ap-seoul-1.ocir.io/cnqphqevfxnp
-export OCI_CONFIG=$(cat /Users/bm/workspace/cloud/tuflix/oci-storage/.oci/config) 
-export OCI_CLI_KEY_CONTENT=$(cat /Users/bm/workspace/cloud/tuflix/oci-storage/.oci/key.pem)
+export OCI_CONFIG=$(cat /Users/bm/workspace/cloud/tuplus/oci-storage/.oci/config) 
+export OCI_CLI_KEY_CONTENT=$(cat /Users/bm/workspace/cloud/tuplus/oci-storage/.oci/key.pem)
 export NAMESPACE=cnqphqevfxnp
-export BUCKET_NAME=tuflix-bucket
+export BUCKET_NAME=tuplus-bucket
 
 set -u # or set -o nounset
 : "$CONTAINER_REGISTRY"
@@ -51,15 +51,15 @@ docker push $CONTAINER_REGISTRY/gateway:1
 # Deploy containers to Kubernetes.
 # Don't forget to change kubectl to your production Kubernetes instance
 
-kubectl -n tuflix apply -f rabbit.yaml
-kubectl -n tuflix apply -f mongodb.yaml
-envsubst <metadata.yaml | kubectl -n tuflix apply -f -
-envsubst <history.yaml | kubectl -n tuflix apply -f -
-# envsubst <mock-storage.yaml | kubectl -n tuflix apply -f -
-envsubst <oci-storage.yaml | kubectl -n tuflix apply -f -
-envsubst <video-streaming.yaml | kubectl -n tuflix apply -f -
-envsubst <video-upload.yaml | kubectl -n tuflix apply -f -
-envsubst <gateway.yaml | kubectl -n tuflix apply -f -
+kubectl -n tuplus apply -f rabbit.yaml
+kubectl -n tuplus apply -f mongodb.yaml
+envsubst <metadata.yaml | kubectl -n tuplus apply -f -
+envsubst <history.yaml | kubectl -n tuplus apply -f -
+# envsubst <mock-storage.yaml | kubectl -n tuplus apply -f -
+envsubst <oci-storage.yaml | kubectl -n tuplus apply -f -
+envsubst <video-streaming.yaml | kubectl -n tuplus apply -f -
+envsubst <video-upload.yaml | kubectl -n tuplus apply -f -
+envsubst <gateway.yaml | kubectl -n tuplus apply -f -
 
 
 
@@ -74,8 +74,8 @@ envsubst <gateway.yaml | kubectl -n tuflix apply -f -
 
 
 # export CONTAINER_REGISTRY=ap-chuncheon-1.ocir.io/axdyhrbstmwy
-# export OCI_CONFIG=$(cat /Users/bm/workspace/cloud/tuflix/oci-storage/.oci/config-ch) 
-# export OCI_CLI_KEY_CONTENT=$(cat /Users/bm/workspace/cloud/tuflix/oci-storage/.oci/key.pem)
+# export OCI_CONFIG=$(cat /Users/bm/workspace/cloud/tuplus/oci-storage/.oci/config-ch) 
+# export OCI_CLI_KEY_CONTENT=$(cat /Users/bm/workspace/cloud/tuplus/oci-storage/.oci/key.pem)
 # export NAMESPACE=axdyhrbstmwy
 # export BUCKET_NAME=video-bucket  # ???
 
@@ -86,20 +86,20 @@ envsubst <gateway.yaml | kubectl -n tuflix apply -f -
 
 # kubectl -n chuncheon-free-ns apply -f rabbit.yaml
 # kubectl -n chuncheon-free-ns apply -f mongodb.yaml
-# envsubst <metadata.yaml | kubectl -n tuflix apply -f -
-# envsubst <history.yaml | kubectl -n tuflix apply -f -
+# envsubst <metadata.yaml | kubectl -n tuplus apply -f -
+# envsubst <history.yaml | kubectl -n tuplus apply -f -
 # # envsubst <mock-storage.yaml | kubectl -n chuncheon-free-ns apply -f -
-# envsubst <video-streaming.yaml | kubectl -n tuflix apply -f -
-# envsubst <video-upload.yaml | kubectl -n tuflix apply -f -
-# envsubst <gateway.yaml | kubectl -n tuflix apply -f -
+# envsubst <video-streaming.yaml | kubectl -n tuplus apply -f -
+# envsubst <video-upload.yaml | kubectl -n tuplus apply -f -
+# envsubst <gateway.yaml | kubectl -n tuplus apply -f -
 
 
 # ---------------참고용 1개 수동 배포 -----------------
 # export CONTAINER_REGISTRY=ap-seoul-1.ocir.io/cnqphqevfxnp
-# export OCI_CONFIG=$(cat /Users/bm/workspace/cloud/tuflix/oci-storage/.oci/config) 
-# export OCI_CLI_KEY_CONTENT=$(cat /Users/bm/workspace/cloud/tuflix/oci-storage/.oci/key.pem)
+# export OCI_CONFIG=$(cat /Users/bm/workspace/cloud/tuplus/oci-storage/.oci/config) 
+# export OCI_CLI_KEY_CONTENT=$(cat /Users/bm/workspace/cloud/tuplus/oci-storage/.oci/key.pem)
 # export NAMESPACE=cnqphqevfxnp
-# export BUCKET_NAME=tuflix-bucket
+# export BUCKET_NAME=tuplus-bucket
 
 # echo $CONTAINER_REGISTRY
 # echo $OCI_CONFIG
@@ -113,5 +113,5 @@ envsubst <gateway.yaml | kubectl -n tuflix apply -f -
 # docker buildx build --platform linux/arm64 --build-arg OCI_CONFIG="${OCI_CONFIG}" --build-arg OCI_CLI_KEY_CONTENT="${OCI_CLI_KEY_CONTENT}" --build-arg NAMESPACE=$NAMESPACE --build-arg BUCKET_NAME=$BUCKET_NAME  -t $CONTAINER_REGISTRY/oci-storage:1 --file ../../oci-storage/Dockerfile-prod ../../oci-storage
 # docker push $CONTAINER_REGISTRY/oci-storage:1
 
-# envsubst <oci-storage.yaml | kubectl -n tuflix apply -f -
-# # envsubst <oci-storage.yaml | kubectl -n tuflix delete -f -
+# envsubst <oci-storage.yaml | kubectl -n tuplus apply -f -
+# # envsubst <oci-storage.yaml | kubectl -n tuplus delete -f -

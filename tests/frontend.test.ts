@@ -7,12 +7,12 @@ const { describe } = test;
 //
 // An example of running ab end-to-end test against our microservices application using Playwright.
 //
-describe('tuflix front end', () => {
+describe('tuplus front end', () => {
   test('can list videos', async ({ page }) => {
     // Load the fixture named "two-videos" into the database "metadata".
     await loadFixture('metadata', 'two-videos');
 
-    // Visit the Tuflix web page (NOTE: The base URL is set in the Playwright configuration file).
+    // Visit the tuplus web page (NOTE: The base URL is set in the Playwright configuration file).
     await page.goto(`/`);
 
     // Check that we have two items in the video list.
