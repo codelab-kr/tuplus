@@ -18,7 +18,8 @@
   "scripts": {
     "test": "playwright test --reporter=list  --workers 1",
     "prepare": "husky install",
-    "postinstall": "sh ./scripts/submodule/hooks-path.sh" 
+    "postinstall": "sh ./scripts/submodule/hooks-path.sh" ,
+    "git": "sh ./scripts/submodule/git.sh"
   },
   "devDependencies": {
     "@playwright/test": "^1.38.1",
