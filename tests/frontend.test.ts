@@ -7,7 +7,7 @@ const { describe } = test;
 //
 // An example of running ab end-to-end test against our microservices application using Playwright.
 //
-describe('tuplus front end', () => {
+describe('tuplus front end...', () => {
   test('can list videos', async ({ page }) => {
     // Load the fixture named "two-videos" into the database "metadata".
     await loadFixture('metadata', 'two-videos');
