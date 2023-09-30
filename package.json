@@ -1,14 +1,14 @@
 {
   "name": "tuplus",
   "version": "0.1.0",
-  "description": "",
+  "description": "Code for the Tuplus project",
   "author": {
-    "name": "codelab",
+    "name": "Tei Lee",
     "email": "master@code-lab.kr",
-    "url": "https://github.com/codelab-kr/tuplus"
+    "url": "https://code-lab.kr"
   },
   "private": true,
-  "license": "ISC",
+  "license": "GNU Affero General Public License v3.0",
   "lint-staged": {
     "**/*{.ts,.js}": [
       "prettier --write",
@@ -18,7 +18,7 @@
   "scripts": {
     "test": "playwright test --reporter=list  --workers 1",
     "prepare": "husky install",
-    "postinstall": "sh scripts/submodule/husky-hook-path.sh"
+    "postinstall": "sh ./scripts/submodule/hooks-path.sh" 
   },
   "devDependencies": {
     "@playwright/test": "^1.38.1",
