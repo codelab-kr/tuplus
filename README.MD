@@ -1,4 +1,4 @@
-# Entire Architecture
+# Architecture
 
 ```mermaid
 flowchart LR
@@ -92,3 +92,35 @@ OKE_CLUSTER_OCID
 
 ## Notes
 npx husky add .husky/pre-commit "npx lint-staged"
+
+<br>
+<br>
+
+
+```mermaid
+---
+title: GitOps Flow
+---
+flowchart LR
+  subgraph Jenkins
+    job1[job build-image]
+    job2[job update-manifest]
+  end
+  subgraph GitHub
+    repo1[code repo]
+    repo2[yaml repo]
+  end
+
+  subgraph Container Registry
+    image[gateway:1]
+  end
+  subgraph ArgoCD
+    gitops[GitOps]
+  end
+  subgraph k8s
+    image2[gateway:1]
+  end
+   dev[developer] --1--> repo1 --2--> job1 --push--> image
+   job1 --3--> job2 --> repo2 --4--> gitops ---> image2
+   image -.-> gitops
+```
