@@ -10,7 +10,7 @@
   "private": true,
   "license": "ISC",
   "lint-staged": {
-    "**/*.ts": [
+    "**/*{.ts,.js}": [
       "prettier --write",
       "eslint --fix"
     ]
