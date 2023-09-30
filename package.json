@@ -17,7 +17,8 @@
   },
   "scripts": {
     "test": "playwright test --reporter=list  --workers 1",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "sh scripts/submodule/husky-hook-path.sh"
   },
   "devDependencies": {
     "@playwright/test": "^1.38.1",
