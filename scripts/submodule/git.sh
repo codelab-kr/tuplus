@@ -11,5 +11,5 @@ dd=`if [[ $(git status --porcelain) ]]; then \
   git add . && git commit -m "$msg" && git push && echo "$msg"; \
 fi;`
 
-git submodule foreach $(echo $dd) $msg
+git submodule foreach "$dd" "$msg" || :
 
