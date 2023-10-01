@@ -7,16 +7,14 @@ if [[ -z "$msg" ]]; then
   exit 1
 fi;
 
-# submodule repo update
-echo "======== Submodule repo update ========"
+echo "======== Submodule Repo Update ========"
 git submodule foreach --recursive \
 'if [[ $(git status --porcelain) ]]; then \
   commit_msg="$@" && echo "$commit_msg" && \
   git add . && git commit -m "$commit_msg" && git push && echo "$commit_msg"; \
 fi;' $msg || :
 
-echo "\n======== Main repo update ========"
-# main repo update
+echo "\n======== Main Repo Update ========"
 if [[ $(git status --porcelain) ]]; then \
   git add . && git commit -m "$msg" && git push && echo "$msg"; \
 fi || :; 
