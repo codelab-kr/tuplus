@@ -1,4 +1,4 @@
-msg=$1
+msg=$1 || msg;
 
 if [[ -z "$msg" ]]; then
   msg="tuplus submodule update default commit message";
