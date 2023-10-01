@@ -19,7 +19,7 @@ spec:
         app: video-storage
     spec:
       imagePullSecrets:
-      - name: free-registry-secret
+      - name: ocir-registry-secret
       containers: 
       - name: video-storage
         image: $CONTAINER_REGISTRY/oci-storage:1

@@ -7,40 +7,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: metadata
+  name: video-storage
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: metadata
+      app: video-storage
   template:
     metadata:
       labels:
-        app: metadata
+        app: video-storage
     spec:
       imagePullSecrets:
-      - name: free-registry-secret
+      - name: ocir-registry-secret
       containers: 
-      - name: metadata
-        image: $CONTAINER_REGISTRY/metadata:$VERSION
+      - name: video-storage
+        image: $CONTAINER_REGISTRY/oci-storage:$VERSION
         imagePullPolicy: IfNotPresent
         env:
         - name: PORT
           value: "4000"
-        - name: DBHOST
-          value: mongodb://mongodb:27017
-        - name: DBNAME
-          value: metadata
         - name: RABBIT
           value: amqp://test:test@rabbit:5672
+        - name: NAMESPACE
+          value: $NAMESPACE
+        - name: BUCKET_NAME
+          value: $BUCKET_NAME
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: metadata
+  name: video-storage
 spec:
   selector:
-    app: metadata
+    app: video-storage
   type: ClusterIP
   ports:
     - protocol: TCP

@@ -17,4 +17,4 @@ envsubst <video-streaming.yaml | kubectl -n tuplus delete -f -
 envsubst <video-upload.yaml | kubectl -n tuplus delete -f -
 envsubst <gateway.yaml | kubectl -n tuplus delete -f -
 
-kubectl -n tuplus delete secret free-registry-secret 
+kubectl -n tuplus delete secret ocir-registry-secret 

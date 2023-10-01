@@ -7,22 +7,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: history
+  name: metadata
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: history
+      app: metadata
   template:
     metadata:
       labels:
-        app: history
+        app: metadata
     spec:
       imagePullSecrets:
-      - name: free-registry-secret
+      - name: ocir-registry-secret
       containers: 
-      - name: history
-        image: $CONTAINER_REGISTRY/history:$VERSION
+      - name: metadata
+        image: $CONTAINER_REGISTRY/metadata:$VERSION
         imagePullPolicy: IfNotPresent
         env:
         - name: PORT
@@ -30,17 +30,17 @@ spec:
         - name: DBHOST
           value: mongodb://mongodb:27017
         - name: DBNAME
-          value: history
+          value: metadata
         - name: RABBIT
           value: amqp://test:test@rabbit:5672
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: history
+  name: metadata
 spec:
   selector:
-    app: history
+    app: metadata
   type: ClusterIP
   ports:
     - protocol: TCP

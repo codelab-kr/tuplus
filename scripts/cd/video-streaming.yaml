@@ -19,7 +19,7 @@ spec:
         app: video-streaming
     spec:
       imagePullSecrets:
-      - name: free-registry-secret
+      - name: ocir-registry-secret
       containers: 
       - name: video-streaming
         image: $CONTAINER_REGISTRY/video-streaming:$VERSION

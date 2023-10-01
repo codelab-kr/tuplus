@@ -19,7 +19,7 @@ spec:
         app: history
     spec:
       imagePullSecrets:
-      - name: free-registry-secret
+      - name: ocir-registry-secret
       containers: 
       - name: history
         image: $CONTAINER_REGISTRY/history:1

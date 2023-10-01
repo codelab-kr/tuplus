@@ -1,3 +1,9 @@
+#
+# To deploy:
+#
+# kubectl apply -f scripts/deploy.yaml
+#
+#
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,8 +20,14 @@ spec:
     spec:
       containers: 
       - name: rabbit
-        image: rabbitmq:3.12.4-management-alpine
+        image: rabbitmq:3.12.1-management-alpine
         imagePullPolicy: Always
+        env:
+        - name: RABBITMQ_DEFAULT_USER
+          value: test
+        - name: RABBITMQ_DEFAULT_PASS
+          value: test
+
 ---
 apiVersion: v1
 kind: Service

@@ -19,7 +19,7 @@ spec:
         app: metadata
     spec:
       imagePullSecrets:
-      - name: free-registry-secret
+      - name: ocir-registry-secret
       containers: 
       - name: metadata
         image: $CONTAINER_REGISTRY/metadata:1

@@ -7,7 +7,7 @@
 #   cd scripts/production-kub 
 #   ./deploy.sh
 
-kubectl -n tuplus create secret docker-registry free-registry-secret --docker-server=ap-seoul-1.ocir.io --docker-username='cnqphqevfxnp/codelab' --docker-password='<token>' --
+kubectl -n tuplus create secret docker-registry ocir-registry-secret --docker-server=ap-seoul-1.ocir.io --docker-username='cnqphqevfxnp/codelab' --docker-password='<token>' --
 
 export CONTAINER_REGISTRY=ap-seoul-1.ocir.io/cnqphqevfxnp
 export OCI_CONFIG=$(cat /Users/bm/workspace/cloud/tuplus/oci-storage/.oci/config) 
@@ -65,7 +65,7 @@ envsubst <gateway.yaml | kubectl -n tuplus apply -f -
 
 # # --------------- 춘천 배포 -----------------
 # # Usage:
-# #   kubectl -n chuncheon-free-ns create secret docker-registry free-registry-secret --docker-server=ap-chuncheon-1.ocir.io --docker-username='axdyhrbstmwy/codelab' --docker-password='<token>' --
+# #   kubectl -n chuncheon-free-ns create secret docker-registry ocir-registry-secret --docker-server=ap-chuncheon-1.ocir.io --docker-username='axdyhrbstmwy/codelab' --docker-password='<token>' --
 # #   docker login -u axdyhrbstmwy/codelab ap-chuncheon-1.ocir.io  # Use your own credentials
 
   
