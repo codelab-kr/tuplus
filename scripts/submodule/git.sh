@@ -1,4 +1,10 @@
-msg=$1 || msg;
+msg=$1
+echo "msg: $msg"
+echo "COMMIT_MSG: $COMMIT_MSG"
+
+msg=${COMMIT_MSG:-$msg}
+
+echo "msg: $msg"
 
 if [[ -z "$msg" ]]; then
   msg="tuplus submodule update default commit message";
