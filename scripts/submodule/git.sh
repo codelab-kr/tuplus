@@ -10,17 +10,18 @@ fi;
 
 # echo "======== Submodule Repo Update ========"
 # git submodule foreach --recursive \
-# "if [[ \$(git status --porcelain) ]]; then \
-#   commit_msg=\"\$@\" && echo \"\$commit_msg\" \
-#   git add . && git commit -m \"\$commit_msg\" && git push && echo \"\$commit_msg\"; \
-# fi;" "$(echo "$msg")" || :
+# 'if [[ $(git status --porcelain) ]]; then \
+#   commit_msg=$@ && echo "commit_msg: $commit_msg" && \
+#   git add . && git commit -m "$commit_msg" && git push; \
+# fi;' || :
 
-echo "======== Submodule Repo Update ========"
+
 git submodule foreach --recursive \
-'if [[ $(git status --porcelain) ]]; then \
-  commit_msg=$@ && echo "commit_msg: $commit_msg" && \
-  git add . && git commit -m "$commit_msg" && git push; \
-fi;' || :
+'if ! [[ -z "$@" ]]; then \
+  echo "arg is passed to the command $1"; \
+else \
+  echo "arg is not passed to the command"; \
+fi;' "$@"
 
 echo "\n======== Main Repo Update ========"
 if [[ $(git status --porcelain) ]]; then \
