@@ -18,9 +18,9 @@ fi;
 echo "======== Submodule Repo Update ========"
 git submodule foreach --recursive \
 'if [[ $(git status --porcelain) ]]; then \
-  commit_msg="$@" && echo "$commit_msg" && \
+  commit_msg="$msg" && echo "$commit_msg" && \
   git add . && git commit -m "$commit_msg" && git push; \
-fi;' "(echo "$@")" || :;
+fi;' || :;
 
 echo "\n======== Main Repo Update ========"
 if [[ $(git status --porcelain) ]]; then \
