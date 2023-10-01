@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   db:
-    image: mongo:7.0.0-rc6-jammy
+    image: mongo:7
     container_name: db
     ports:
       - '27017:27017'
