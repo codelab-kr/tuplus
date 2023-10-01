@@ -22,7 +22,7 @@ spec:
       - name: ocir-registry-secret
       containers: 
       - name: video-storage
-        image: $CONTAINER_REGISTRY/oci-storage:$VERSION
+        image: ap-seoul-1.ocir.io/cnqphqevfxnp/oci-storage:latest
         imagePullPolicy: IfNotPresent
         env:
         - name: PORT

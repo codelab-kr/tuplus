@@ -22,7 +22,7 @@ spec:
       - name: ocir-registry-secret
       containers: 
       - name: history
-        image: $CONTAINER_REGISTRY/history:$VERSION
+        image: ap-seoul-1.ocir.io/cnqphqevfxnp/history:latest
         imagePullPolicy: IfNotPresent
         env:
         - name: PORT
