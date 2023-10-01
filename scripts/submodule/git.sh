@@ -19,4 +19,4 @@ echo "\n======== Main repo update ========"
 # main repo update
 if [[ $(git status --porcelain) ]]; then \
   git add . && git commit -m "$msg" && git push && echo "$msg"; \
-fi;
+fi || :; 
