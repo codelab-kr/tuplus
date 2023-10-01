@@ -19,9 +19,7 @@
     "test": "playwright test --reporter=list  --workers 1",
     "prepare": "husky install",
     "postinstall": "sh ./scripts/submodule/hooks-path.sh" ,
-    "git": "export COMMIT_MSG=$1 && npm run git:sub && npm run git:main",
-    "git:sub": "git submodule foreach 'sh ../scripts/submodule/git.sh' $COMMIT_MSG",
-    "git:main": "sh ./scripts/submodule/git.sh $COMMIT_MSG"
+    "git": "sh ./scripts/submodule/git.sh"
   },
   "devDependencies": {
     "@playwright/test": "^1.38.1",
