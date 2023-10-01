@@ -12,7 +12,7 @@ git submodule foreach --recursive \
 'if [[ $(git status --porcelain) ]]; then \
   commit_msg="$@" && echo "$commit_msg" && \
   git add . && git commit -m "$commit_msg" && git push; \
-fi;' $@;
+fi;' "$(echo "$@")" || :;
 
 echo "\n======== Main Repo Update ========"
 if [[ $(git status --porcelain) ]]; then \
