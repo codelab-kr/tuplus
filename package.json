@@ -19,7 +19,7 @@
     "test": "playwright test --reporter=list  --workers 1",
     "prepare": "husky install",
     "postinstall": "sh ./scripts/submodule/hooks-path.sh" ,
-    "git": "npm run git:sub && npm run git:main",
+    "git": "npm run git:sub $1 && npm run git:main",
     "git:sub": "git submodule foreach 'sh ../scripts/submodule/git.sh'",
     "git:main": "sh ./scripts/submodule/git.sh"
   },
