@@ -8,20 +8,12 @@ if [[ -z "$msg" ]]; then
 fi;
 
 
-# echo "======== Submodule Repo Update ========"
-# git submodule foreach --recursive \
-# 'if [[ $(git status --porcelain) ]]; then \
-#   commit_msg=$@ && echo "commit_msg: $commit_msg" && \
-#   git add . && git commit -m "$commit_msg" && git push; \
-# fi;' || :
-
-
-git submodule foreach --recursive \
-'if ! [[ -z "$@" ]]; then \
-  echo "arg is passed to the command $1"; \
-else \
-  echo "arg is not passed to the command"; \
-fi;' "$@"
+echo "======== Submodule Repo Update ========";
+echo "msg: $msg" |  git submodule foreach --recursive \
+'if [[ $(git status --porcelain) ]]; then \
+  echo "msg: '"$msg"'" && \
+  git add . && git commit -m "'"$msg"'" && git push; \
+fi;' || :
 
 echo "\n======== Main Repo Update ========"
 if [[ $(git status --porcelain) ]]; then \
