@@ -13,9 +13,6 @@
 [submodule "mock-storage"]
 	path = mock-storage
 	url = https://github.com/codelab-kr/tuplus-mock-storage
-[submodule "oci-storage"]
-	path = oci-storage
-	url = https://github.com/codelab-kr/tuplus-oci-storage
 [submodule "security"]
 	path = security
 	url = https://github.com/codelab-kr/tuplus-security.git
@@ -25,7 +22,6 @@
 [submodule "video-streaming"]
 	path = video-streaming
 	url = https://github.com/codelab-kr/tuplus-video-streaming.git
-	
 [submodule "scripts"]
 	path = scripts
 	url = https://github.com/codelab-kr/tuplus-scripts.git
