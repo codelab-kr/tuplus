@@ -25,6 +25,3 @@
 [submodule "scripts"]
 	path = scripts
 	url = https://github.com/codelab-kr/tuplus-scripts.git
-[submodule "oci-storage"]
-	path = oci-storage
-	url = https://github.com/codelab-kr/tuplus-oci-storage.git
