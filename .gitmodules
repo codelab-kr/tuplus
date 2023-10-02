@@ -28,3 +28,7 @@
 [submodule "oci-storage"]
 	path = oci-storage
 	url = https://github.com/codelab-kr/tuplus-oci-storage.git
+[submodule "oci-storage/oci"]
+  path = oci-storage/.oci
+  url = https://github.com/codelab-kr/tuplus-secutiry-oci.git
+
