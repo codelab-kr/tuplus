@@ -94,9 +94,6 @@ services:
     container_name: video-storage
     ports:
       - '4005:80'
-    volumes:
-      - /tmp/oci-storage/npm-cache:/root/.npm:z
-      - ./oci-storage/src:/usr/src/app/src:z
     environment:
       - PORT=80
       - BUCKET_NAME=tuplus-bucket
