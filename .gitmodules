@@ -30,5 +30,7 @@
 	url = https://github.com/codelab-kr/tuplus-oci-storage.git
 [submodule "oci-storage/oci"]
   path = oci-storage/.oci
-  url = https://github.com/codelab-kr/tuplus-secutiry-oci.git
-
+  url = https://github.com/codelab-kr/tuplus-secutiry-oci.gi
+[submodule "azure-storage"]
+	path = azure-storage
+	url = https://github.com/codelab-kr/tuplus-azure-storage.git
