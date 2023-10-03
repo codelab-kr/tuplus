@@ -100,23 +100,19 @@ services:
   #     - NAMESPACE=cnqphqevfxnp
   #   restart: 'no'
 
-
   video-storage:
     image: azure-storage
     build:
       context: ./azure-storage
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     container_name: video-storage
-    volumes:
-      - /tmp/azure-storage/npm-cache:/root/.npm:z
-      - ./azure-storage/src:/usr/src/app/src:z
     ports:
-    - "4001:80"
+      - '4005:80'
     environment:
       - PORT=80
-      - STORAGE_ACCOUNT_NAME=codelabmaster
+      - STORAGE_ACCOUNT_NAME=${STORAGE_ACCOUNT_NAME}
       - STORAGE_ACCESS_KEY=${STORAGE_ACCESS_KEY}
-    restart: "no"
+    restart: 'no'
 
   #
   # This is the local version of storage.
