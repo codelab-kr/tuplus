@@ -86,27 +86,40 @@ services:
   # Uncomment this service to enable cloud storage.
   #
 
+  # video-storage:
+  #   image: oci-storage
+  #   build:
+  #     context: ./oci-storage
+  #     dockerfile: Dockerfile
+  #   container_name: video-storage
+  #   ports:
+  #     - '4005:80'
+  #   environment:
+  #     - PORT=80
+  #     - BUCKET_NAME=tuplus-bucket
+  #     - NAMESPACE=cnqphqevfxnp
+  #   restart: 'no'
+
+
   video-storage:
-    image: oci-storage
+    image: azure-storage
     build:
-      context: ./oci-storage
-      dockerfile: Dockerfile
+      context: ./azure-storage
+      dockerfile: Dockerfile.dev
     container_name: video-storage
+    volumes:
+      - /tmp/azure-storage/npm-cache:/root/.npm:z
+      - ./azure-storage/src:/usr/src/app/src:z
     ports:
-      - '4005:80'
+    - "4001:80"
     environment:
       - PORT=80
-      - BUCKET_NAME=tuplus-bucket
-      - NAMESPACE=cnqphqevfxnp
-    restart: 'no'
+      - STORAGE_ACCOUNT_NAME=codelabmaster
+      - STORAGE_ACCESS_KEY=${STORAGE_ACCESS_KEY}
+    restart: "no"
 
   #
   # This is the local version of storage.
-  # Instead of storing files in the cloud it stores files on the
-  # local machine.
-  #
-  # This is "mock" for the storage microservices to make
-  # local testing easier.
   #
 
   # video-storage:
