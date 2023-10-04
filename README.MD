@@ -122,7 +122,7 @@ title: GitOps Flow
 flowchart LR
   subgraph Jenkins
     job1[job build-image]
-    job2[job tuplus-update-manifest]
+    job2[job update-manifest]
   end
   subgraph GitHub
     repo1[code repo]
