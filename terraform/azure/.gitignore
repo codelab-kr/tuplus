@@ -4,3 +4,4 @@ kubeconfig*
 terraforrm.tfvars
 terraform.tfstate*
 .terraform.lock.hcl
+.env

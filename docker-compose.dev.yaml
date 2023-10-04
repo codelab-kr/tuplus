@@ -142,16 +142,16 @@ services:
     build:
       context: ./azure-storage
       dockerfile: Dockerfile-dev
-      
+
     container_name: video-storage
     volumes:
       - /tmp/azure-storage/npm-cache:/root/.npm:z
       - ./azure-storage/src:/usr/src/app/src:z
     ports:
-      - '4001:80'
+      - '4005:80'
     environment:
       - PORT=80
-      - STORAGE_ACCOUNT_NAME=tuplus
+      - STORAGE_ACCOUNT_NAME=${STORAGE_ACCOUNT_NAME}
       - STORAGE_ACCESS_KEY=${STORAGE_ACCESS_KEY}
     restart: 'no'
 

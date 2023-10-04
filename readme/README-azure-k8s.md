@@ -46,26 +46,34 @@ https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli
 ➜  terraform plan
 ➜  terraform apply
 ...
+Outputs:
+
 registry_hostname = "tuplus.azurecr.io"
-registry_id = "/subscriptions/<구독ID>/resourceGroups/tuplus/providers/Microsoft.ContainerRegistry/registries/tuplus"
+registry_id = "/subscriptions/78c4440c-2050-4d5a-93f3-e30263f35cd9/resourceGroups/tuplus/providers/Microsoft.ContainerRegistry/registries/tuplus"
 registry_pw = <sensitive>
 registry_un = "tuplus"
+storage_account_connection_string = <sensitive>
+
+
 
 # registry_pw
 ➜  terraform output -raw registry_pw
 ➜  az acr credential show --name tuplus --output table
 
-# kubeconfig
-➜  az aks get-credentials --resource-group tuplus --name tuplus --file kubeconfig.azure
+
+# storage_account_connection_string
+➜  terraform output -raw storage_account_connection_string
+➜  az acr credential show --name tuplus --output table
+
 
 # get node
-➜  kubectl get nodes --kubeconfig kubeconfig.azure
+➜  kubectl get nodes --kubeconfig kubeconfig
 NAME                              STATUS   ROLES   AGE     VERSION
 aks-default-23725562-vmss000000   Ready    agent   2m13s   v1.27.3
 aks-default-23725562-vmss000001   Ready    agent   2m25s   v1.27.3
 
 # get all
-➜  kubectl get all --kubeconfig kubeconfig.azure -A
+➜  kubectl get all --kubeconfig kubeconfig -A
 NAMESPACE     NAME                                      READY   STATUS    RESTARTS   AGE
 kube-system   pod/azure-ip-masq-agent-hkpqg             1/1     Running   0          24m
 kube-system   pod/azure-ip-masq-agent-pvspw             1/1     Running   0          24m
