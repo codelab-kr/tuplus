@@ -3,8 +3,14 @@
 ### Terraform
 https://developer.hashicorp.com/terraform/downloads
 ```bash
+# for Mac
 ➜  brew tap hashicorp/tap
 ➜  brew install hashicorp/tap/terraform
+
+# for Ubuntu
+➜  wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+➜  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+➜  sudo apt update && sudo apt install terraform
 
 ➜  terraform version 
 Terraform v1.5.7
@@ -14,7 +20,12 @@ on darwin_arm64
 ### Azure CLI 
 https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli
 ```bash
+# for Mac
 ➜  brew update && brew install azure-cli
+
+# for Ubuntu
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
 ➜  az login
 
 # 권한부여
